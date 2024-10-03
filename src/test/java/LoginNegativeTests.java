@@ -15,8 +15,18 @@ public class LoginNegativeTests {
         driver.manage().window().maximize();
     }
 
-// TC01 - Valid username but empty password field
-    @Test
+    @Test(
+            testName = "TC01 - Valid username but empty password field",
+            description =
+                """
+                Step 1: User navigates to Magento homepage
+                Step 2: User click on login button
+                Step 3: User type valid email address
+                Step 4: User let the password field empty
+                Step 5: User click on Sign in button
+                Step 6: User receive an error with invalid password
+                """
+    )
     public void ValidEmailEmptyPasswordTest() throws InterruptedException {
         driver.findElement(By.xpath("(//a[contains(text(), 'Sign In')])[1]")).click();
         driver.findElement(By.xpath("//input[@id='email']")).sendKeys("a.b@gmail.com");
@@ -31,24 +41,22 @@ public class LoginNegativeTests {
         Assert.assertEquals(actualColor1, expectedColor1);
     }
 
-// TC02 - Empty field for username, valid password
-    @Test
+    @Test(testName = "TC02 - Empty field for username, valid password")
     public void emptyEmailValidPasswordTest() throws InterruptedException {
-       driver.findElement(By.xpath("(//a[contains(text(), 'Sign In')])[1]")).click();
-       driver.findElement(By.xpath("//input[@id='email']")).sendKeys("");
-       driver.findElement(By.xpath("//input[@id='pass']")).sendKeys("testpassword");
-       Thread.sleep(2000);
-       driver.findElement(By.xpath("(//button[@id='send2'])[1]")).click();
-       String actualMessage2 = driver.findElement(By.xpath("//div[@id='email-error']")).getText();
-       String expectedMessage2 = "This is a required field.";
-       Assert.assertEquals(actualMessage2, expectedMessage2);
-       String actualColor2 = driver.findElement(By.xpath("//div[@id='email-error']")).getCssValue("color");
-       String expectedColor2 = "rgb(224, 43, 39)";
-       Assert.assertEquals(actualColor2, expectedColor2);
+        driver.findElement(By.xpath("(//a[contains(text(), 'Sign In')])[1]")).click();
+        driver.findElement(By.xpath("//input[@id='email']")).sendKeys("");
+        driver.findElement(By.xpath("//input[@id='pass']")).sendKeys("testpassword");
+        Thread.sleep(2000);
+        driver.findElement(By.xpath("(//button[@id='send2'])[1]")).click();
+        String actualMessage2 = driver.findElement(By.xpath("//div[@id='email-error']")).getText();
+        String expectedMessage2 = "This is a required field.";
+        Assert.assertEquals(actualMessage2, expectedMessage2);
+        String actualColor2 = driver.findElement(By.xpath("//div[@id='email-error']")).getCssValue("color");
+        String expectedColor2 = "rgb(224, 43, 39)";
+        Assert.assertEquals(actualColor2, expectedColor2);
     }
 
-// TC03 - Invalid Email
-    @Test
+    @Test(testName = "TC03 - Invalid Email")
     public void invalidEmailTest() throws InterruptedException {
         driver.findElement(By.xpath("(//a[contains(text(), 'Sign In')])[1]")).click();
         driver.findElement(By.xpath("//input[@id='email']")).sendKeys("bla bla bla");
@@ -63,8 +71,7 @@ public class LoginNegativeTests {
         Assert.assertEquals(actualColor3, expectedColor3);
     }
 
-// TC04 - Valid email invalid password
-    @Test
+    @Test(testName = "TC04 - Valid email invalid password")
     public void validEmailInvalidPasswordTest() throws InterruptedException {
         driver.findElement(By.xpath("(//a[contains(text(), 'Sign In')])[1]")).click();
         driver.findElement(By.xpath("//input[@id='email']")).sendKeys("ione17.popescu@gmail.com");
@@ -76,8 +83,7 @@ public class LoginNegativeTests {
         Assert.assertEquals(actualMessage4, expectedMessage4);
     }
 
-// TC05 - Empty email, empty password
-    @Test
+    @Test(testName = "TC05 - Empty email, empty password")
     public void emptyEmailEmptyPasswordTest() throws InterruptedException {
         driver.findElement(By.xpath("(//a[contains(text(), 'Sign In')])[1]")).click();
         driver.findElement(By.xpath("//input[@id='email']")).sendKeys("");
@@ -99,3 +105,4 @@ public class LoginNegativeTests {
     }
 }
 
+//TODO: De pus denumiri si descriere la toate testele
