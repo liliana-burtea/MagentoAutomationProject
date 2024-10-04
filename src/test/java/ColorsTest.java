@@ -35,12 +35,12 @@ public class ColorsTest {
     }
 
     @Test(
-            testName = "TC02 - Valid username but empty password field",
+            testName = "TC02 - Valid background color for Training on Demand",
             description =
                     """
                     Step 1: User navigates to Magento homepage
                     Step 2: User click on Training button
-                    Step 3: User verify Training on demand backgrount color
+                    Step 3: User verify Training on demand background color
                     Step 4: User receive the message that the color is as expected
                     """
     )
@@ -52,7 +52,16 @@ public class ColorsTest {
         Assert.assertEquals(actualColor1, expectedColor1);
     }
 
-    @Test
+    @Test(
+            testName = "TC03 - Valid background color of Free Shipping",
+            description =
+                    """
+                    Step 1: User navigates to Magento homepage
+                    Step 2: User click on Sale button
+                    Step 3: User verify Free Shipping background color
+                    Step 4: User receive the message that the color is as expected
+                    """
+    )
     public void verifyCommercialSaleFreeShippingBackgroundColorTest() {
         driver.findElement(By.xpath("//span[contains(text(), 'Sale')]")).click();
         String actualColor2 = driver.findElement(By.xpath("//a[@class='block-promo sale-free-shipping']"))
