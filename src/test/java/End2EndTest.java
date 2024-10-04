@@ -7,7 +7,7 @@ import test.data.Constants;
 
 public class End2EndTest {
 
-    // Adauga 5 produse din departamente diferite in cos
+    // Adauga 4 produse din departamente diferite in cos
 
     @Test(
             testName = "TC01 - Add 4 products from 4 different departments into the cart",
