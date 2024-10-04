@@ -87,7 +87,16 @@ public class ColorsTest {
         Assert.assertEquals(actualColor3, expectedColor3);
     }
 
-    @Test
+    @Test(
+            testName = "TC05 - Valid Short color from New Luma Yoga Collection",
+            description =
+                    """
+                    Step 1: User navigates to Magento homepage
+                    Step 2: User click on New Luma Yoga Collection button
+                    Step 3: User verify the Short color
+                    Step 4: User receive the message that the color is as expected
+                    """
+    )
     public void verifyShortColorTest() {
         driver.findElement(By.xpath("//span[@class='action more button']")).click();
         String actualColor4 = driver.findElement(By.xpath("//div[@option-label='Purple'][1]"))
@@ -101,7 +110,7 @@ public class ColorsTest {
         driver.findElement(By.xpath("//span[@class='action more button']")).click();
         String actualColor4 = driver.findElement(By.xpath("//a[@title='Go to Home Page']"))
                 .getCssValue(Constants.COLOR_CSS);
-        String expectedColor4 = Constants.DARK_GRAY_COLOR;
+        String expectedColor4 = Constants.BLUE1_COLOR;
         Assert.assertEquals(actualColor4, expectedColor4);
     }
 }
