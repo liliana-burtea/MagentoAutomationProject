@@ -1,9 +1,11 @@
+import org.checkerframework.checker.units.qual.C;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
+import test.data.Constants;
 
 public class CreateAccountTest {
 
@@ -11,22 +13,26 @@ public class CreateAccountTest {
 
     @BeforeTest //metoda @BeforeTest se autoapeleaza inainte de rularea fiecarui test din clasa respectiva
     public void setup() {
-        driver.get("https://magento.softwaretestingboard.com/");
+        driver.get(Constants.BASE_URL);
         driver.manage().window().maximize();
     }
 
     @Test
     public void createAccountTest() throws InterruptedException {
         driver.findElement(By.xpath("//a[contains(text(), 'Create an Account')]")).click();
-        driver.findElement(By.xpath("//input[@id='firstname']")).sendKeys("Ionut");
-        driver.findElement(By.xpath("//input[@id='lastname']")).sendKeys("Popescu");
-        driver.findElement(By.xpath("//input[@id='email_address']")).sendKeys("ione17.popescu@gmail.com");
-        driver.findElement(By.xpath("//input[@id='password']")).sendKeys(".Testpass.123");
-        driver.findElement(By.xpath("//input[@id='password-confirmation']")).sendKeys(".Testpass.123");
+        driver.findElement(By.xpath("//input[@id='firstname']"))
+                .sendKeys(Constants.FIRST_NAME);
+        driver.findElement(By.xpath("//input[@id='lastname']")).sendKeys(Constants.LAST_NAME);
+        driver.findElement(By.xpath("//input[@id='email_address']"))
+                .sendKeys(Constants.EMAIL1);
+        driver.findElement(By.xpath("//input[@id='password']")).sendKeys(Constants.PASSWORD);
+        driver.findElement(By.xpath("//input[@id='password-confirmation']"))
+                .sendKeys(Constants.PASSWORD);
         driver.findElement(By.xpath("//button[@class='action submit primary']")).click();
         Thread.sleep(3000); // timp de asteptare o secunda (1=1000)
-        String actualMessage = driver.findElement(By.xpath("//div[@data-bind='html: $parent.prepareMessageForHtml(message.text)']")).getText();
-        String expectedMessage = "Thank you for registering with Main Website Store.";
+        String actualMessage = driver.findElement(By.xpath(
+                "//div[@data-bind='html: $parent.prepareMessageForHtml(message.text)']")).getText();
+        String expectedMessage = Constants.EXPECTED_MESSAGE_CREATE_ACCOUNT;
         Assert.assertEquals(actualMessage, expectedMessage);
     }
 
@@ -85,6 +91,5 @@ public class CreateAccountTest {
         Assert.assertEquals(actualThankYouTitle, expectedThankYouTitle);
     }
 
-    //Tema
-    // Continua testul e2eTest pana la cumpararea produsului + assertion
+    // TODO: Muta datele de test (email, tel, adresa...etc, in constante, inclusiv mesajele de assert)
 }
