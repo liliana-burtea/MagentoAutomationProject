@@ -17,7 +17,16 @@ public class ColorsTest {
         driver.manage().window().maximize();
     }
 
-    @Test
+    @Test(
+            testName = "TC01 - Valid username but empty password field",
+            description =
+                    """
+                    Step 1: User navigates to Magento homepage
+                    Step 2: User click on Shop button
+                    Step 3: User verify Shop New Yoga Button color
+                    Step 4: User receive the message that the color is as expected
+                    """
+    )
     public void verifyShopNewYogaButtonColorTest() {
         String actualColor = driver.findElement(By.xpath("//span[@class='action more button']"))
                 .getCssValue(Constants.BACKGROUND_COLOR_CSS);
