@@ -70,8 +70,8 @@ public class CreateAccountTest {
     @Test
     public void e2eBuyAWomenTeeshirtTest() throws InterruptedException {
         driver.findElement(By.xpath("(//a[contains(text(), 'Sign In')])[1]")).click();
-        driver.findElement(By.xpath("//input[@id='email']")).sendKeys("ione17.popescu@gmail.com");
-        driver.findElement(By.xpath("//input[@id='pass']")).sendKeys(".Testpass.123");
+        driver.findElement(By.xpath("//input[@id='email']")).sendKeys(Constants.EMAIL1);
+        driver.findElement(By.xpath("//input[@id='pass']")).sendKeys(Constants.PASSWORD);
         driver.findElement(By.xpath("(//button[@id='send2'])[1]")).click();
         driver.findElement(By.xpath("//span[@class='action more button']")).click();
         driver.findElement(By.xpath("//a[contains(text(), 'Juliana Short-Sleeve Tee')]")).click();
@@ -87,29 +87,34 @@ public class CreateAccountTest {
         driver.findElement(By.xpath("//button[@id='top-cart-btn-checkout']")).click();
         Thread.sleep(4000);
         try{
-            driver.findElement(By.xpath("//div[@class='shipping-address-item selected-item']")).isDisplayed();
+            driver.findElement(By.xpath("//div[@class='shipping-address-item selected-item']"))
+                    .isDisplayed();
             Thread.sleep(4000);
             driver.findElement(By.xpath("//button[@class='button action continue primary']")).click();
             Thread.sleep(4000);
             driver.findElement(By.xpath("//button[@class='action primary checkout']")).click();
             }
         catch (Exception e){
-            driver.findElement(By.xpath("//input[@name='street[0]']")).sendKeys("Dristorului, nr.6, Bl.21, Et.4, Apt.23");
-            driver.findElement(By.xpath("//input[@name='city']")).sendKeys("Bucharest");
+            driver.findElement(By.xpath("//input[@name='street[0]']"))
+                    .sendKeys(Constants.USER_ADDRESS);
+            driver.findElement(By.xpath("//input[@name='city']")).sendKeys(Constants.CITY);
             Thread.sleep(2000);
             driver.findElement(By.xpath("//select[@name='country_id']")).click();
             driver.findElement(By.xpath("//option[@data-title='Romania']")).click();
             driver.findElement(By.xpath("//select[@name='region_id']")).click();
             driver.findElement(By.xpath("//option[@data-title='Alba']")).click();
-            driver.findElement(By.xpath("//input[@name='postcode']")).sendKeys("123456");
-            driver.findElement(By.xpath("//input[@name='telephone']")).sendKeys("+40723783673");
+            driver.findElement(By.xpath("//input[@name='postcode']"))
+                    .sendKeys(Constants.POSTCODE);
+            driver.findElement(By.xpath("//input[@name='telephone']"))
+                    .sendKeys(Constants.PHONE_NUMBER);
             driver.findElement(By.xpath("//button[@class='button action continue primary']")).click();
             Thread.sleep(5000);
             driver.findElement(By.xpath("//button[@class='action primary checkout']")).click();
         }
         Thread.sleep(6000);
-        String actualThankYouTitle = driver.findElement(By.xpath("//span[@data-ui-id='page-title-wrapper']")).getText();
-        String expectedThankYouTitle = "Thank you for your purchase!";
+        String actualThankYouTitle = driver.findElement(By.xpath(
+                "//span[@data-ui-id='page-title-wrapper']")).getText();
+        String expectedThankYouTitle = Constants.EXPECTED_THANK_YOU_TITLE;
         Assert.assertEquals(actualThankYouTitle, expectedThankYouTitle);
     }
 
