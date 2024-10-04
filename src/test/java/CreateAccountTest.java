@@ -17,7 +17,18 @@ public class CreateAccountTest {
         driver.manage().window().maximize();
     }
 
-    @Test
+    @Test(
+            testName = "TC01 - Create new account",
+            description =
+                    """
+                    Step 1: User navigates to Magento homepage
+                    Step 2: User click on Create an account button
+                    Step 3: User type personal information
+                    Step 4: User type Sign-in Information
+                    Step 5: User click on Create an Account button
+                    Step 4: User receive the expected message for Create an Account
+                    """
+    )
     public void createAccountTest() throws InterruptedException {
         driver.findElement(By.xpath("//a[contains(text(), 'Create an Account')]")).click();
         driver.findElement(By.xpath("//input[@id='firstname']"))
