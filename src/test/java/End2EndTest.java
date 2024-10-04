@@ -3,15 +3,51 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
+import test.data.Constants;
 
 public class End2EndTest {
 
     // Adauga 5 produse din departamente diferite in cos
 
-    @Test
+    @Test(
+            testName = "TC01 - Add 4 products from 4 different departments into the cart",
+            description =
+                    """
+                    Step 1: User navigates to Magento homepage
+                    Step 2: User click on Women button
+                    Step 3: User click on Hoodies & Sweatshirts button
+                    Step 4: User scroll down and click on a product from the list and add the first product to the cart
+                    Step 5: User select the size and quantity
+                    Step 6: User click on Add to Cart button
+                    
+                    Step 4: User navigates to Magento homepage
+                    Step 5: User click on Men button
+                    Step 6: User click on Taurus Elements Shell button
+                    Step 7: User click on a product from the list and add the second product to the cart
+                    Step 8: User select the size and quantity
+                    Step 9: User click on Add to Cart button
+                    
+                    Step 10: User navigates to Magento homepage
+                    Step 11: User click on Gear button
+                    Step 12: User click on Watches button
+                    Step 13: User click on a product from the list and add the third product to the cart
+                    Step 14: User select the size and quantity
+                    Step 15: User click on Add to Cart button
+                    
+                    Step 16: User navigates to Magento homepage
+                    Step 17: User click on Sale button
+                    Step 18: User click on Bras & Tanks button
+                    Step 19: User click on a product from the list and add the forth product to the cart
+                    Step 20: User select the size and quantity
+                    Step 21: User click on Add to Cart button
+                    
+                    Step 22: User click on Show Cart button
+                    Step 23: User click on Proceed to Checkout button
+                    """
+    )
     public void add5DifferentProductToCartTest() throws InterruptedException {
         WebDriver driver = new FirefoxDriver();
-        driver.get("https://magento.softwaretestingboard.com/");
+        driver.get(Constants.BASE_URL);
         driver.manage().window().maximize();
     // First Product
         Thread.sleep(2000);
@@ -55,17 +91,9 @@ public class End2EndTest {
         driver.findElement(By.cssSelector("#option-label-color-93-item-57")).click();
         Thread.sleep(2000);
         driver.findElement(By.xpath("//span[contains(text(), 'Add to Cart')]")).click();
-        //Fifth Product
-        //////////
         driver.findElement(By.xpath("//a[@class='action showcart']")).click();
         Thread.sleep(2000);
         driver.findElement(By.xpath("//button[@id='top-cart-btn-checkout']")).click();
         Thread.sleep(2000);
-
         }
-
 }
-
-// Tema Negative Tests
-// O clasa noua in care testez: Login
-// Testeaza textul si culoarea fiecarei erori (in teste separate in clasa respectiva)
