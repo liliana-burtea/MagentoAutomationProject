@@ -105,7 +105,16 @@ public class ColorsTest {
         Assert.assertEquals(actualColor4, expectedColor4);
     }
 
-    @Test
+    @Test(
+            testName = "TC06 - Go to Homepage color title",
+            description =
+                    """
+                    Step 1: User navigates to Magento homepage
+                    Step 2: User click on Homepage button
+                    Step 3: User verify the Homepage title color
+                    Step 4: User receive the message that the color is as expected
+                    """
+    )
     public void verifyGoToHomePageColorTest() {
         driver.findElement(By.xpath("//span[@class='action more button']")).click();
         String actualColor4 = driver.findElement(By.xpath("//a[@title='Go to Home Page']"))
@@ -114,6 +123,3 @@ public class ColorsTest {
         Assert.assertEquals(actualColor4, expectedColor4);
     }
 }
-
-// TODO: Muta toate culorile in constante
-// TODO: Muta atributele de CSS in constante
