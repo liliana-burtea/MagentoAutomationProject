@@ -43,7 +43,18 @@ public class LoginNegativeTests {
         Assert.assertEquals(actualColor1, expectedColor1);
     }
 
-    @Test(testName = "TC02 - Empty field for username, valid password")
+    @Test(
+            testName = "TC02 - Empty field for username, valid password",
+            description =
+                    """
+                    Step 1: User navigates to Magento homepage
+                    Step 2: User click on login button
+                    Step 3: User let the email address field empty
+                    Step 4: User type the password
+                    Step 5: User click on Sign in button
+                    Step 6: User receive an error with validation field for email
+                    """
+    )
     public void emptyEmailValidPasswordTest() throws InterruptedException {
         driver.findElement(By.xpath("(//a[contains(text(), 'Sign In')])[1]")).click();
         driver.findElement(By.xpath("//input[@id='email']")).sendKeys(Constants.EMPTY_EMAIL);
