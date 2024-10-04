@@ -67,10 +67,32 @@ public class CreateAccountTest {
         Assert.assertEquals(actualJacketsTitle, expectedJacketsTitle);
     }
 
-    @Test
+    @Test(
+            testName = "TC03 - E2E Buy a product",
+            description =
+                    """
+                    Step 1: User navigates to Magento homepage
+                    Step 2: User click on Sign in button
+                    Step 3: User type email and password
+                    Step 4: User click on Sign in button
+                    Step 5: User click on Women button
+                    Step 6: User click on Tee button
+                    Step 7: User scroll down and click on a product
+                    Step 8: User select the size and quantity
+                    Step 9: User click on Add to Cart button
+                    Step 10: User click on the cart button
+                    Step 11: User click on Proceed to checkout button
+                    Step 12: If the user is new on the shopping page - User type the Shipping Address
+                             If the user is not new the shopping page, the address will be remember from the when was
+                             last time logged and will fill the address
+                    Step 13: User click on Next button
+                    Step 14: User click on Place Order button
+                    Step 15: User receive the message Thank you for your purchase! as expected
+                    """
+    )
     public void e2eBuyAWomenTeeshirtTest() throws InterruptedException {
         driver.findElement(By.xpath("(//a[contains(text(), 'Sign In')])[1]")).click();
-        driver.findElement(By.xpath("//input[@id='email']")).sendKeys(Constants.EMAIL1);
+        driver.findElement(By.xpath("//input[@id='email']")).sendKeys(Constants.EMAIL);
         driver.findElement(By.xpath("//input[@id='pass']")).sendKeys(Constants.PASSWORD);
         driver.findElement(By.xpath("(//button[@id='send2'])[1]")).click();
         driver.findElement(By.xpath("//span[@class='action more button']")).click();
@@ -117,6 +139,4 @@ public class CreateAccountTest {
         String expectedThankYouTitle = Constants.EXPECTED_THANK_YOU_TITLE;
         Assert.assertEquals(actualThankYouTitle, expectedThankYouTitle);
     }
-
-    // TODO: Muta datele de test (email, tel, adresa...etc, in constante, inclusiv mesajele de assert)
 }
