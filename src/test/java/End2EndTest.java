@@ -8,6 +8,13 @@ import test.data.Constants;
 public class End2EndTest {
 
     // Adauga 4 produse din departamente diferite in cos
+    WebDriver driver = new FirefoxDriver();
+
+    @BeforeTest
+    public void setup() {
+        driver.get(Constants.BASE_URL);
+        driver.manage().window().maximize();
+    }
 
     @Test(
             testName = "TC01 - Add 4 products from 4 different departments into the cart",
