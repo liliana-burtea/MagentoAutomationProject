@@ -73,16 +73,16 @@ public class LoginNegativeTests {
     @Test(testName = "TC03 - Invalid Email")
     public void invalidEmailTest() throws InterruptedException {
         driver.findElement(By.xpath("(//a[contains(text(), 'Sign In')])[1]")).click();
-        driver.findElement(By.xpath("//input[@id='email']")).sendKeys("bla bla bla");
-        driver.findElement(By.xpath("//input[@id='pass']")).sendKeys("testpassword");
+        driver.findElement(By.xpath("//input[@id='email']")).sendKeys(Constants.INVALID_EMAIL);
+        driver.findElement(By.xpath("//input[@id='pass']")).sendKeys(Constants.PASSWORD);
         Thread.sleep(2000);
         driver.findElement(By.xpath("(//button[@id='send2'])[1]")).click();
         String actualMessage3 = driver.findElement(By.xpath("//div[@id='email-error']")).getText();
-        String expectedMessage3 = "Please enter a valid email address (Ex: johndoe@domain.com).";
+        String expectedMessage3 = Constants.EXPECTED_MESSAGE_VALID_EMAIL;
         Assert.assertEquals(actualMessage3, expectedMessage3);
         String actualColor3 = driver.findElement(By.xpath("//div[@id='email-error']"))
-                .getCssValue("color");
-        String expectedColor3 = "rgb(224, 43, 39)";
+                .getCssValue(Constants.COLOR_CSS);
+        String expectedColor3 = Constants.RED_COLOR;
         Assert.assertEquals(actualColor3, expectedColor3);
     }
 
