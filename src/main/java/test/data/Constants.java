@@ -26,6 +26,7 @@ public class Constants {
     public static final String WRONG_EMAIL = "a.b@gmail.com";
     public static final String PASSWORD = ".Testpass.123";
     public static final String EMPTY_PASSWORD = "";
+    public static final String EMPTY_EMAIL = "";
     public static final String FIRST_NAME = "Ionut";
     public static final String LAST_NAME = "Popescu";
     public static final String USER_ADDRESS = "Dristorului, nr.6, Bl.21, Et.4, Apt.23";
@@ -35,6 +36,7 @@ public class Constants {
     public static final String EXPECTED_THANK_YOU_TITLE = "Thank you for your purchase!";
     public static final String EXPECTED_MESSAGE_CREATE_ACCOUNT = "Thank you for registering with Main Website Store.";
     public static final String EXPECTED_MESSAGE_EMPTY_PASSWORD = "This is a required field.";
+    public static final String EXPECTED_MESSAGE_REQUIRED_FIELD = "This is a required field.";
 
     public static final String TITLE_JACKETS = "Jackets";
 

@@ -46,16 +46,16 @@ public class LoginNegativeTests {
     @Test(testName = "TC02 - Empty field for username, valid password")
     public void emptyEmailValidPasswordTest() throws InterruptedException {
         driver.findElement(By.xpath("(//a[contains(text(), 'Sign In')])[1]")).click();
-        driver.findElement(By.xpath("//input[@id='email']")).sendKeys("");
-        driver.findElement(By.xpath("//input[@id='pass']")).sendKeys("testpassword");
+        driver.findElement(By.xpath("//input[@id='email']")).sendKeys(Constants.EMPTY_EMAIL);
+        driver.findElement(By.xpath("//input[@id='pass']")).sendKeys(Constants.PASSWORD);
         Thread.sleep(2000);
         driver.findElement(By.xpath("(//button[@id='send2'])[1]")).click();
         String actualMessage2 = driver.findElement(By.xpath("//div[@id='email-error']")).getText();
-        String expectedMessage2 = "This is a required field.";
+        String expectedMessage2 = Constants.EXPECTED_MESSAGE_REQUIRED_FIELD;
         Assert.assertEquals(actualMessage2, expectedMessage2);
         String actualColor2 = driver.findElement(By.xpath("//div[@id='email-error']"))
-                .getCssValue("color");
-        String expectedColor2 = "rgb(224, 43, 39)";
+                .getCssValue(Constants.COLOR_CSS);
+        String expectedColor2 = Constants.RED_COLOR;
         Assert.assertEquals(actualColor2, expectedColor2);
     }
 
