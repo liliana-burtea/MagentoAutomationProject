@@ -70,7 +70,16 @@ public class ColorsTest {
         Assert.assertEquals(actualColor2, expectedColor2);
     }
 
-    @Test
+    @Test(
+            testName = "TC04 - Valid title color for Hot Sellers",
+            description =
+                    """
+                    Step 1: User navigates to Magento homepage
+                    Step 2: User click on Sale button
+                    Step 3: User verify Hot Sellers title color
+                    Step 4: User receive the message that the color is as expected
+                    """
+    )
     public void verifyHotSellersTitleColorTest() {
         String actualColor3 = driver.findElement(By.xpath("//h2[@class='title']"))
                 .getCssValue(Constants.COLOR_CSS);
