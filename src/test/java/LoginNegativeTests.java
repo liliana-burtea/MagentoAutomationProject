@@ -35,7 +35,7 @@ public class LoginNegativeTests {
         Thread.sleep(2000);
         driver.findElement(By.xpath("(//button[@id='send2'])[1]")).click();
         String actualMessage1 = driver.findElement(By.xpath("//div[@id='pass-error']")).getText();
-        String expectedMessage1 = Constants.EXPECTED_MESSAGE_EMPTY_PASSWORD;
+        String expectedMessage1 = Constants.EXPECTED_MESSAGE_REQUIRED_FIELD;
         Assert.assertEquals(actualMessage1, expectedMessage1);
         String actualColor1 = driver.findElement(By.xpath("//div[@id='pass-error']"))
                 .getCssValue(Constants.COLOR_CSS);
@@ -126,23 +126,23 @@ public class LoginNegativeTests {
     @Test(testName = "TC05 - Empty email, empty password")
     public void emptyEmailEmptyPasswordTest() throws InterruptedException {
         driver.findElement(By.xpath("(//a[contains(text(), 'Sign In')])[1]")).click();
-        driver.findElement(By.xpath("//input[@id='email']")).sendKeys("");
-        driver.findElement(By.xpath("//input[@id='pass']")).sendKeys("");
+        driver.findElement(By.xpath("//input[@id='email']")).sendKeys(Constants.EMPTY_EMAIL);
+        driver.findElement(By.xpath("//input[@id='pass']")).sendKeys(Constants.EMPTY_PASSWORD);
         Thread.sleep(2000);
         driver.findElement(By.xpath("(//button[@id='send2'])[1]")).click();
         String actualMessage5 = driver.findElement(By.xpath("//div[@id='email-error']")).getText();
-        String expectedMessage5 = "This is a required field.";
+        String expectedMessage5 = Constants.EXPECTED_MESSAGE_REQUIRED_FIELD;
         Assert.assertEquals(actualMessage5, expectedMessage5);
         String actualColor5 = driver.findElement(By.xpath("//div[@id='email-error']"))
-                .getCssValue("color");
-        String expectedColor5 = "rgb(224, 43, 39)";
+                .getCssValue(Constants.COLOR_CSS);
+        String expectedColor5 = Constants.EXPECTED_MESSAGE_REQUIRED_FIELD;
         Assert.assertEquals(actualColor5, expectedColor5);
         String actualMessage6 = driver.findElement(By.xpath("//div[@id='pass-error']")).getText();
-        String expectedMessage6 = "This is a required field.";
+        String expectedMessage6 = Constants.EXPECTED_MESSAGE_REQUIRED_FIELD;
         Assert.assertEquals(actualMessage6, expectedMessage6);
         String actualColor6 = driver.findElement(By.xpath("//div[@id='pass-error']"))
-                .getCssValue("color");
-        String expectedColor6 = "rgb(224, 43, 39)";
+                .getCssValue(Constants.COLOR_CSS);
+        String expectedColor6 = Constants.RED_COLOR;
         Assert.assertEquals(actualColor6, expectedColor6);
     }
 }

@@ -101,7 +101,7 @@ public class ColorsTest {
         driver.findElement(By.xpath("//span[@class='action more button']")).click();
         String actualColor4 = driver.findElement(By.xpath("//div[@option-label='Purple'][1]"))
                 .getCssValue(Constants.BACKGROUND_CSS);
-        String expectedColor4 = Constants.PURLPLE_COLOR;
+        String expectedColor4 = Constants.PURPLE_COLOR;
         Assert.assertEquals(actualColor4, expectedColor4);
     }
 

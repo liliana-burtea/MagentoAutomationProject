@@ -14,7 +14,7 @@ public class Constants {
     public static final String GREEN_COLOR  = "rgb(113, 181, 78)";
     public static final String GRAY_COLOR = "rgb(51, 51, 51)";
     public static final String BLUE1_COLOR = "rgb(0, 107, 180)";
-    public static final String PURLPLE_COLOR = "rgb(239, 61, 255) 50% 50% no-repeat";
+    public static final String PURPLE_COLOR = "rgb(239, 61, 255) 50% 50% no-repeat";
     public static final String RED_COLOR = "rgb(224, 43, 39)";
     public static final String DARK_CHARCOAL_COLOR = "rgb(51, 51, 51)";
 
@@ -24,24 +24,25 @@ public class Constants {
 
     public static final String EMAIL = "marinela.popescu@gmail.com";
     public static final String EMAIL1 = "ione20.popescu@gmail.com";
-    public static final String WRONG_EMAIL = "a.b@gmail.com";
     public static final String EMPTY_EMAIL = "";
     public static final String INVALID_EMAIL = "bla bla bla";
     public static final String PASSWORD = ".Testpass.123";
     public static final String INVALID_PASSWORD = "tra la la";
     public static final String EMPTY_PASSWORD = "";
+
     public static final String FIRST_NAME = "Ionut";
     public static final String LAST_NAME = "Popescu";
     public static final String USER_ADDRESS = "Dristorului, nr.6, Bl.21, Et.4, Apt.23";
     public static final String CITY = "Bucharest";
     public static final String POSTCODE = "123456";
     public static final String PHONE_NUMBER = "+40723783673";
+
     public static final String EXPECTED_THANK_YOU_TITLE = "Thank you for your purchase!";
     public static final String EXPECTED_MESSAGE_CREATE_ACCOUNT = "Thank you for registering with Main Website Store.";
-    public static final String EXPECTED_MESSAGE_EMPTY_PASSWORD = "This is a required field.";
     public static final String EXPECTED_MESSAGE_REQUIRED_FIELD = "This is a required field.";
     public static final String EXPECTED_MESSAGE_VALID_EMAIL = "Please enter a valid email address " +
             "(Ex: johndoe@domain.com).";
+
     public static final String TITLE_JACKETS = "Jackets";
 
 
