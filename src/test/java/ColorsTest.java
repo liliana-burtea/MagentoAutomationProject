@@ -34,7 +34,16 @@ public class ColorsTest {
         Assert.assertEquals(actualColor, expectedColor);
     }
 
-    @Test
+    @Test(
+            testName = "TC02 - Valid username but empty password field",
+            description =
+                    """
+                    Step 1: User navigates to Magento homepage
+                    Step 2: User click on Training button
+                    Step 3: User verify Training on demand backgrount color
+                    Step 4: User receive the message that the color is as expected
+                    """
+    )
     public void verifyTrainingOnDemandBackgroundColorTest() {
         driver.findElement(By.xpath("//span[contains(text(), 'Training')]")).click();
         String actualColor1 = driver.findElement(By.xpath("//a[@class='block-promo training-on-demand']"))
