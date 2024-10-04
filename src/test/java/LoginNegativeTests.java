@@ -101,13 +101,14 @@ public class LoginNegativeTests {
     public void validEmailInvalidPasswordTest() throws InterruptedException {
         driver.findElement(By.xpath("(//a[contains(text(), 'Sign In')])[1]")).click();
         driver.findElement(By.xpath("//input[@id='email']")).sendKeys(
-                "ione17.popescu@gmail.com");
-        driver.findElement(By.xpath("//input[@id='pass']")).sendKeys("invalid_password");
+                Constants.EMAIL);
+        driver.findElement(By.xpath("//input[@id='pass']"))
+                .sendKeys(Constants.INVALID_PASSWORD);
         Thread.sleep(2000);
         driver.findElement(By.xpath("(//button[@id='send2'])[1]")).click();
         String actualMessage4 = driver.findElement(By.xpath("//div[@class='messages']"))
-                .getCssValue("color");
-        String expectedMessage4 = "rgb(51, 51, 51)";
+                .getCssValue(Constants.COLOR_CSS);
+        String expectedMessage4 = Constants.DARK_CHARCOAL_COLOR;
         Assert.assertEquals(actualMessage4, expectedMessage4);
     }
 

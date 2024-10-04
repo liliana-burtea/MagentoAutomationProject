@@ -16,6 +16,7 @@ public class Constants {
     public static final String BLUE1_COLOR = "rgb(0, 107, 180)";
     public static final String PURLPLE_COLOR = "rgb(239, 61, 255) 50% 50% no-repeat";
     public static final String RED_COLOR = "rgb(224, 43, 39)";
+    public static final String DARK_CHARCOAL_COLOR = "rgb(51, 51, 51)";
 
     public static final String COLOR_CSS = "color";
     public static final String BACKGROUND_COLOR_CSS = "background-color";
@@ -27,6 +28,7 @@ public class Constants {
     public static final String EMPTY_EMAIL = "";
     public static final String INVALID_EMAIL = "bla bla bla";
     public static final String PASSWORD = ".Testpass.123";
+    public static final String INVALID_PASSWORD = "tra la la";
     public static final String EMPTY_PASSWORD = "";
     public static final String FIRST_NAME = "Ionut";
     public static final String LAST_NAME = "Popescu";
