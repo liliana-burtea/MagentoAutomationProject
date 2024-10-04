@@ -97,7 +97,18 @@ public class LoginNegativeTests {
         Assert.assertEquals(actualColor3, expectedColor3);
     }
 
-    @Test(testName = "TC04 - Valid email invalid password")
+    @Test(
+            testName = "TC04 - Valid email invalid password",
+            description =
+                    """
+                    Step 1: User navigates to Magento homepage
+                    Step 2: User click on login button
+                    Step 3: User type an valid email address
+                    Step 4: User type an invalid password
+                    Step 5: User click on Sign in button
+                    Step 6: User receive an error with validation field for password
+                    """
+    )
     public void validEmailInvalidPasswordTest() throws InterruptedException {
         driver.findElement(By.xpath("(//a[contains(text(), 'Sign In')])[1]")).click();
         driver.findElement(By.xpath("//input[@id='email']")).sendKeys(
