@@ -47,12 +47,23 @@ public class CreateAccountTest {
         Assert.assertEquals(actualMessage, expectedMessage);
     }
 
-    @Test
+    @Test(
+            testName = "TC02 - Go to Women and verify the Jackets title",
+            description =
+                    """
+                    Step 1: User navigates to Magento homepage
+                    Step 2: User click on Women button
+                    Step 3: User click on Jackets button
+                    Step 3: User verify Jackets title
+                    Step 4: User receive the message that the title is as expected
+                    """
+    )
     public void goToWomenJacketTest(){
         driver.findElement(By.xpath("//span[contains(text(), 'Women')]")).click();
         driver.findElement(By.xpath("//a[contains(text(), 'Jackets')]")).click();
-        String actualJacketsTitle = driver.findElement(By.xpath("//span[@data-ui-id='page-title-wrapper']")).getText();
-        String expectedJacketsTitle = "Jackets";
+        String actualJacketsTitle = driver.findElement(By.xpath(
+                "//span[@data-ui-id='page-title-wrapper']")).getText();
+        String expectedJacketsTitle = Constants.TITLE_JACKETS;
         Assert.assertEquals(actualJacketsTitle, expectedJacketsTitle);
     }
 

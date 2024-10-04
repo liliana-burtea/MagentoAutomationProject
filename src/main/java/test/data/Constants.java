@@ -21,7 +21,14 @@ public class Constants {
     public static final String BACKGROUND_CSS = "background";
 
     public static final String EMAIL = "marinela.popescu@gmail.com";
+    public static final String EMAIL1 = "ione20.popescu@gmail.com";
     public static final String PASSWORD = ".Testpass.123";
+    public static final String FIRST_NAME = "Ionut";
+    public static final String LAST_NAME = "Popescu";
+    public static final String EXPECTED_MESSAGE_CREATE_ACCOUNT = "Thank you for registering with Main Website Store.";
+
+    public static final String TITLE_JACKETS = "Jackets";
+
 
 
 
